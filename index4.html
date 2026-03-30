@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROCCO Business Card V4 - Minimalist Grid</title>
+  <style>
+    :root {
+      --sheet-width: 978px;
+      --sheet-height: 1304px;
+      --card-height: 652px;
+      --pad-x: 80px;
+      --pad-y: 60px;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #000000;
+      --border: rgba(0, 0, 0, 0.08);
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f0f0f0;
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Noto Sans SC", sans-serif;
+      color: var(--text);
+    }
+
+    .sheet {
+      width: var(--sheet-width);
+      height: var(--sheet-height);
+      background: var(--bg);
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .divider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(var(--card-height) - 0.5px);
+      border-top: 1px dashed rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .card {
+      height: var(--card-height);
+      padding: var(--pad-y) var(--pad-x);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .logo {
+      height: 48px;
+      width: auto;
+    }
+
+    .lang-tag {
+      font-size: 12px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-left: 2px solid var(--accent);
+      padding-left: 12px;
+      line-height: 1;
+      margin-top: 12px;
+    }
+
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-end;
+      gap: 40px;
+    }
+
+    .identity {
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 24px;
+    }
+
+    .name {
+      font-size: 82px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .title {
+      font-size: 24px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .info-value {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 40px;
+    }
+
+    .web-link {
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    .qr-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    .qr-code {
+      width: 100px;
+      height: 100px;
+    }
+
+    .qr-text {
+      font-size: 10px;
+      line-height: 1.4;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      margin-bottom: 4px;
+    }
+
+    .card-en .name {
+      font-size: 72px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <!-- Chinese Card -->
+    <section class="card card-zh">
+      <div class="header">
+        <img src="RoccoLogo.png" alt="ROCCO" class="logo">
+        <div class="lang-tag">中文版</div>
+      </div>
+      
+      <div class="main-content">
+        <div class="identity">
+          <h1 class="name">李丹丹</h1>
+          <p class="title">采购工程师</p>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <span class="info-value">bella.li@roccofridge.com</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Mobile</span>
+            <span class="info-value">+86 18291966145</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="web-link">roccofridge.com</div>
+        <div class="qr-container">
+          <div class="qr-text">微信扫码<br>建立联系</div>
+          <img src="黑白微信二维码.png" alt="QR" class="qr-code">
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- English Card -->
+    <section class="card card-en">
+      <div class="header">
+        <img src="RoccoLogo.png" alt="ROCCO" class="logo">
+        <div class="lang-tag">English</div>
+      </div>
+      
+      <div class="main-content">
+        <div class="identity">
+          <h2 class="name">Bella Li</h2>
+          <p class="title">Procurement Engineer</p>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <span class="info-value">bella.li@roccofridge.com</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Mobile</span>
+            <span class="info-value">+86 18291966145</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="web-link">roccofridge.com</div>
+        <div class="qr-container">
+          <div class="qr-text">SCAN TO<br>CONNECT</div>
+          <img src="黑白微信二维码.png" alt="QR" class="qr-code">
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
