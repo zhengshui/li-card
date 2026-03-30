@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROCCO Business Card V2</title>
+  <style>
+    :root {
+      --sheet-width: 978px;
+      --sheet-height: 1304px;
+      --card-height: 652px;
+      --pad-x: 64px;
+      --pad-y: 52px;
+      --text: #121212;
+      --muted: rgba(18, 18, 18, 0.58);
+      --line: rgba(18, 18, 18, 0.18);
+      --panel: rgba(255, 255, 255, 0.88);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+
+      font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Noto Sans SC", sans-serif;
+    }
+
+    .sheet {
+      width: var(--sheet-width);
+      height: var(--sheet-height);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 100% 0, rgba(255, 255, 255, 0.08), transparent 20%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 20%),
+        var(--bg);
+      color: var(--text);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .divider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(var(--card-height) - 0.5px);
+      border-top: 1px dashed var(--line);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .card {
+      height: var(--card-height);
+      padding: var(--pad-y) var(--pad-x);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 44px;
+      position: relative;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .main,
+    .side {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo {
+      width: 216px;
+      height: auto;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 74px;
+      line-height: 0.96;
+      font-weight: 500;
+      letter-spacing: -0.055em;
+    }
+
+    .title {
+      margin-top: 18px;
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--muted);
+    }
+
+    .stack {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 16px;
+    }
+
+    .contact-label {
+      margin-bottom: 8px;
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      word-break: break-word;
+    }
+
+    .qr {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      display: block;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 12px;
+    }
+
+    .qr-meta {
+      margin-top: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .qr-block {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <section class="card">
+      <div class="main">
+        <div class="eyebrow">Chinese Version</div>
+        <div>
+          <h1 class="name">李丹丹</h1>
+          <div class="title">采购主管</div>
+        </div>
+        <div class="stack">
+          <div class="contact">
+            <div class="contact-label">Mail</div>
+            <div class="contact-value">bella.li@roccofridge.com</div>
+          </div>
+          <div class="contact">
+            <div class="contact-label">Mobile</div>
+            <div class="contact-value">+86 18291966145</div>
+          </div>
+          <div class="contact">
+            <div class="contact-label">Web</div>
+            <div class="contact-value">roccofridge.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side">
+        <img class="logo" src="RoccoLogo.png" alt="ROCCO" />
+        <div class="qr-block">
+          <img class="qr" src="黑白微信二维码.png" alt="微信二维码" />
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <section class="card">
+      <div class="main">
+        <div class="eyebrow">English Version</div>
+        <div>
+          <h2 class="name">Bella Li</h2>
+          <div class="title">Head of Sourcing</div>
+        </div>
+        <div class="stack">
+          <div class="contact">
+            <div class="contact-label">Mail</div>
+            <div class="contact-value">bella.li@roccofridge.com</div>
+          </div>
+          <div class="contact">
+            <div class="contact-label">Mobile</div>
+            <div class="contact-value">+86 18291966145</div>
+          </div>
+          <div class="contact">
+            <div class="contact-label">Web</div>
+            <div class="contact-value">roccofridge.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side">
+        <img class="logo" src="RoccoLogo.png" alt="ROCCO" />
+        <div class="qr-block">
+          <img class="qr" src="黑白微信二维码.png" alt="WeChat QR code" />
+          <div class="qr-meta">Scan to connect<br />on WeChat</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
